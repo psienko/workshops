@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  before_action :authenticate_user!
   expose(:category)
   expose(:products)
   expose(:product)
