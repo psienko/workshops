@@ -10,9 +10,6 @@ describe ReviewsController do
 
   before do
     sign_in user
-    controller.stub(:user_signed_in?).and_return(true)
-    controller.stub(:current_user).and_return(user)
-    controller.stub(:authenticate_user!).and_return(user)
   end
 
   describe 'POST create' do
