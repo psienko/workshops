@@ -1,13 +1,17 @@
 class CategoryDecorator < Draper::Decorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
+  def new_category
+    h.link_to 'New Category', h.new_category_path if can_call?
+  end
 
+  def edit_category
+    h.link_to 'Edit', h.edit_category_path(object.id) if can_call?
+  end
+
+  private
+
+  def can_call?
+    h.current_user.nil? || h.current_user.admin?
+  end
 end
