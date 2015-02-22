@@ -4,7 +4,7 @@ describe CategoryDecorator do
 
   let(:admin) { build(:user, admin: true) }
   let(:user) { build(:user) }
-  let(:category) { described_class.new(build(:category)) }
+  let(:category) { described_class.new(create(:category)) }
 
   context 'user is an admin' do
     before do
