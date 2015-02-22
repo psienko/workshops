@@ -2,9 +2,9 @@ require 'spec_helper'
 
 describe ProductDecorator do
 
-  let(:user) { build(:user) }
-  let(:owner) { build(:user) }
-  let(:product) { described_class.new(build(:product, user: owner)) }
+  let(:user) { create(:user) }
+  let(:owner) { create(:user) }
+  let(:product) { described_class.new(create(:product, user: owner)) }
   
   context 'user is the owner of product' do
 
