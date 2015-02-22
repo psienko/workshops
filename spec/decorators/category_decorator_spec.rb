@@ -16,6 +16,13 @@ describe CategoryDecorator do
         expect(category.new_category).to have_selector('a', text: 'New Category')
       end
     end
+
+    describe '#edit_category' do
+      it "displays the 'Edit' link" do
+        expect(category.edit_category).to have_selector('a', text: 'Edit')
+      end
+    end
+
   end
 
   context 'user is not an admin' do
@@ -26,6 +33,12 @@ describe CategoryDecorator do
     describe '#new_category' do
       it "does not display the 'New Category' link" do
         expect(category.new_category).to be_nil
+      end
+    end
+
+    describe '#edit_category' do
+      it "does not display the 'Edit' link" do
+        expect(category.edit_category).to be_nil
       end
     end
   end
