@@ -1,13 +1,9 @@
 class ProductDecorator < Draper::Decorator
   delegate_all
 
-  # Define presentation-specific methods here. Helpers are accessed through
-  # `helpers` (aka `h`). You can override attributes, for example:
-  #
-  #   def created_at
-  #     helpers.content_tag :span, class: 'time' do
-  #       object.created_at.strftime("%a %m/%d/%y")
-  #     end
-  #   end
-
+  def edit_product
+    if h.current_user.nil? || object.user_id == h.current_user.id
+      h.link_to 'Edit', h.edit_category_product_path(object.category, object)
+    end
+  end
 end
