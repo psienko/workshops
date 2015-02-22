@@ -10,8 +10,8 @@ class CategoryDecorator < Draper::Decorator
   end
 
   private
-  
+
   def can_call?
-    h.current_user && h.current_user.admin?
+    h.current_user.nil? || h.current_user.admin?
   end
 end
