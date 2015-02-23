@@ -1,25 +1,35 @@
-%p#notice= notice
-%p#error= flash[:error]
+.panel.panel-primary
+  .panel-heading
+    %br
+  .panel-body
+    %p#notice= notice
+    %p#error= flash[:error]
 
-%p
-  %b Title:
-  = product.title
-%p
-  %b Description:
-  = product.description
-%p
-  %b Price:
-  = product.price
+    %p
+      %b Title:
+      = product.title
+    %p
+      %b Description:
+      = product.description
+    %p
+      %b Price:
+      = product.price
 
-%p
-  %b Category
-  = product.category.name
+    %p
+      %b Category
+      = product.category.name
 
-%h3 Reviews
-= render 'reviews/form'
+    .row
+      .col-lg-8
+        .panel.panel-default
+          .panel-heading
+            %h3.panel-title Reviews
+          .panel-body    
+            = render 'reviews/form'
+          .panel-footer  
+            = render reviews
 
-= render reviews
-
-= link_to 'Edit', edit_category_product_path(category.id, product.id)
-\|
-= link_to 'Back', category_products_path, class: 'btn btn-primary'
+        .panel-footer    
+          = link_to 'Edit', edit_category_product_path(category.id, product.id)
+          \|
+          = link_to 'Back', category_products_path, class: 'btn btn-primary'

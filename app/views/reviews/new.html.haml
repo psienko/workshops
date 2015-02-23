@@ -1,7 +1,11 @@
 .panel.panel-primary
   .panel-heading
-    %h1.panel-title New product
-  .panel-body
-    = render 'form'
+    %h1.panel-title New review
+
+  .panel-body  
+    .row
+      .col-lg-6
+        = render 'form'
+
   .panel-footer  
     = link_to 'Back', category_products_path

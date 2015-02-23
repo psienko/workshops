@@ -6,7 +6,7 @@ class CategoryDecorator < Draper::Decorator
   end
 
   def edit_category
-    h.link_to 'Edit', h.edit_category_path(object.id), class: 'btn btn-secondary' if can_call?
+    h.link_to 'Edit', h.edit_category_path(object.id), class: 'btn btn-sm btn-secondary' if can_call?
   end
 
   private
