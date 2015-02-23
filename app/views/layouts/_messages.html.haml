@@ -1,0 +1,7 @@
+- flash.each do |key, value|
+  -alert_name = key == 'notice' ? 'success' : 'danger' 
+  =content_tag :div, class: "alert alert-#{alert_name}" do
+    %button.close{ type: :button, :data => { :dismiss => "alert" }, :aria=> { hidden: 'true'} } x
+    %strong
+      = value
+      
