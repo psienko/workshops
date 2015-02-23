@@ -1,19 +1,23 @@
-%h1 Listing categories
+.panel.panel-primary
+  .panel-heading
+    %h1.panel-title Listing categories
 
-%table.table
-  %tr
-    %th Name
-    %th
-    %th
-    %th
+  .panel-body  
+    %table.table.table-striped.table-hover.table-condensed
+      %tr
+        %th Name
+        %th
+        %th
+        %th
 
-  - categories.each do |category|
-    %tr
-      %td= category.name
-      %td= link_to 'Show', category
-      %td= category.edit_category
-      %td= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' }
+      - categories.each do |category|
+        %tr
+          %td= category.name
+          %td= link_to 'Show', category, class: 'btn btn-sm btn-primary'
+          %td= category.edit_category
+          %td= link_to 'Destroy', category, method: :delete, class: 'btn btn-sm btn-danger', data: { confirm: 'Are you sure?' }
 
-%br
+    %br
 
-= CategoryDecorator.decorate(Category.first).new_category
+    .panel-footer
+      = CategoryDecorator.decorate(Category.first).new_category

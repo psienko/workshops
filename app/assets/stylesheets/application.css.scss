@@ -2,6 +2,7 @@
 
 //colors
 $white: #fff;
+$dark-gray: #555;
 $mercury: #e5e5e5;
 $black_5: rgba(0,0,0,.05);
 
@@ -40,5 +41,15 @@ $black_5: rgba(0,0,0,.05);
   }
   input[type="password"] {
     @extend %extend_1;
+  }
+}
+
+
+
+.btn-secondary {
+  color: $white;
+  background-color: $dark-gray;
+  &:hover {
+    color: $white;
   }
 }
