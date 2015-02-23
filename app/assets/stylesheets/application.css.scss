@@ -1,1 +1,55 @@
 @import "bootstrap";
+
+//colors
+$white: #fff;
+$dark-gray: #555;
+$mercury: #e5e5e5;
+$black_5: rgba(0,0,0,.05);
+
+//@extend-elements
+//original selectors
+//.border-form-div input[type="text"], .border-form-div input[type="email"], .border-form-div input[type="password"]
+%extend_1 {
+  font-size: 16px;
+  height: auto;
+  margin-bottom: 15px;
+  padding: 7px 9px;
+}
+
+
+.border-form-div {
+  max-width: 400px;
+  padding: 19px 29px 29px;
+  margin: 0 auto 20px;
+  background-color: $white;
+  border: 1px solid $mercury;
+  //Instead of the line below you could use @includeborder-radius($radius, $vertical-radius)
+  border-radius: 5px;
+  //Instead of the line below you could use @includebox-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 0 1px 2px $black_5;
+  .form-signin-heading {
+    margin-bottom: 10px;
+  }
+  .checkbox {
+    margin-bottom: 10px;
+  }
+  input[type="text"] {
+    @extend %extend_1;
+  }
+  input[type="email"] {
+    @extend %extend_1;
+  }
+  input[type="password"] {
+    @extend %extend_1;
+  }
+}
+
+
+
+.btn-secondary {
+  color: $white;
+  background-color: $dark-gray;
+  &:hover {
+    color: $white;
+  }
+}

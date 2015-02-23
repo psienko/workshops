@@ -1,17 +1,25 @@
 %p#notice= notice
+.panel.panel-primary
+  
+  .panel-heading
+    %p
+      %b Name:
+      = category.name
 
-%p
-  %b Name:
-  = category.name
+  .panel-body
+    %p
+      - category.products.each do |product|
+        = product.title
 
-%p
-  - category.products.each do |product|
-    = product.title
+    .row
+      .col-lg-4
+        .panel.panel-default
+          .panel-heading
+            %h3 New product
+          .panel-body     
+            = render 'products/form'
 
-%p
-  %h3 New product
-  = render 'products/form'
-
-= link_to 'Edit', edit_category_path(category)
-\|
-= link_to 'Back', categories_path, class: 'btn btn-primary'
+  .panel-footer
+    = link_to 'Edit', edit_category_path(category)
+    \|
+    = link_to 'Back', categories_path, class: 'btn btn-primary'
