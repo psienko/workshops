@@ -22,11 +22,6 @@ describe ProfilesController do
         expect(response).to render_template('show')
       end
 
-      it 'exposes the requested user' do
-        get :show
-        expect(controller.user).to eq(user)
-      end
-
       it 'exposes the user products' do
         create :product, user_id: user.id
         create :product
@@ -51,5 +46,4 @@ describe ProfilesController do
       end
     end
   end
-
 end
