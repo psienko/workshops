@@ -4,5 +4,7 @@ FactoryGirl.define do
   factory :review do
     content "MyText"
     rating 1
+    user
+    product
   end
 end
