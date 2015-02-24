@@ -3,6 +3,7 @@ class ProfilesController < ApplicationController
 
   expose(:products) { current_user.products }
   expose(:reviews) { current_user.reviews }
+  expose(:user)
 
   def show
   end
