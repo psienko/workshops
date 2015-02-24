@@ -1,0 +1,46 @@
+.row
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading
+        %h1.panel-title User Information
+      .panel-body
+        %p
+          %b Name: 
+          =user.firstname 
+        %p
+          %b Lastname: 
+          =user.lastname 
+        %p
+          %b Email: 
+          =user.email
+        %p
+          %b Role: 
+          =user.role
+        = user.display_edit_button_in_panel_footer
+
+    .panel.panel-primary
+      .panel-heading
+        %h1.panel-title Login Information
+      .panel-body
+        %p
+          %b Sigin in count: 
+          =current_user.sign_in_count 
+        %p
+          %b Current sign in at: 
+          =current_user.current_sign_in_at 
+        %p
+          %b Last sign in at: 
+          =current_user.last_sign_in_at
+  
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading
+        %h1.panel-title User Statistics
+      .panel-body
+        %p
+          %b The amount of added products: 
+          =user.products.count 
+        %p
+          %b The amount of reviews: 
+          =user.reviews.count
+
