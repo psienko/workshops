@@ -1,8 +1,7 @@
 class ProfilesController < ApplicationController
   before_action :authenticate_user!
 
-  expose(:products) { user.products }
-  expose(:reviews) { user.reviews }
+  expose(:reviews) { user.reviews.order('created_at desc').limit(5) }
   expose(:user)
   expose_decorated(:user)
 
