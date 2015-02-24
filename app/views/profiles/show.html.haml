@@ -24,13 +24,13 @@
       .panel-body
         %p
           %b Sigin in count: 
-          =current_user.sign_in_count 
+          =user.sign_in_count 
         %p
           %b Current sign in at: 
-          =current_user.current_sign_in_at 
+          =user.current_sign_in_at 
         %p
           %b Last sign in at: 
-          =current_user.last_sign_in_at
+          =user.last_sign_in_at
   
   .col-lg-4
     .panel.panel-primary
@@ -44,3 +44,22 @@
           %b The amount of reviews: 
           =user.reviews.count
 
+  .col-lg-4
+    .panel.panel-primary
+      .panel-heading
+        %h1.panel-title Last Reviews
+      .panel-body
+        %ul.list-group
+          - reviews.each do |review|
+            %li.list-group-item
+              .alert-info
+                Review for:
+                %b
+                  = link_to review.product.title, category_product_path(review.product.category.to_param, review.product.to_param)
+              %span.badge 
+                Created at: 
+                = review.date
+              %span.badge 
+                Rating: 
+                = review.rating
+              = review.content
