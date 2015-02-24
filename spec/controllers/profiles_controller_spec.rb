@@ -27,18 +27,12 @@ describe ProfilesController do
         expect(controller.user).to eq(user)
       end
 
-      it 'exposes the user products' do
-        create :product, user_id: user.id
-        create :product
-        get :show, { id: user.to_param }
-        expect(controller.products).to eq(user.products)
-      end
-
-      it 'exposes the user reviews' do
+      it 'exposes the last 5 user reviews' do
         create :review, user_id: user.id
         create :review
         get :show, { id: user.to_param }
-        expect(controller.reviews).to eq(user.reviews)
+        expected = user.reviews.order('created_at desc').limit(5)
+        expect(controller.reviews).to eq(expected)
       end
     end
   end
