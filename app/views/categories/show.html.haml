@@ -18,7 +18,7 @@
                 .btn-group{ role: "group" }
                   =link_to product.title,  category_product_path(product.category, product), class: "btn btn-default" 
           .panel-footer
-            =link_to 'Go to all products in category', category_products_path(category), class: "btn btn-lg btn-success" 
+            =link_to 'Show all products in category', category_products_path(category), class: "btn btn-lg btn-success" 
 
       .col-lg-5.pull-right
         .panel.panel-primary
@@ -28,6 +28,7 @@
             = render 'products/form'
 
   .panel-footer
-    = link_to 'Edit', edit_category_path(category)
-    \|
+    - if current_user.admin?
+      = link_to 'Edit', edit_category_path(category) if current_user.admin?
+      \|
     = link_to 'Back', categories_path, class: 'btn btn-primary'
