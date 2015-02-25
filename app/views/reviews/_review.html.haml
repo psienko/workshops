@@ -1,5 +1,10 @@
-.list-group
-  %p.list-group-item.list-group-item-info= review.content
-  %p.list-group-item.list-group-item-info
-    %b= review.rating
-    %em= review.author
+%ul.list-group
+  %li.list-group-item.list-group-item-info
+    %p
+      = review.content
+      %br
+      %span.badge
+        Rating: 
+        = review.rating
+      %em.badge.alert-warning
+        = review.author
