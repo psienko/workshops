@@ -55,7 +55,10 @@
               .alert-info
                 Review for:
                 %b
-                  = link_to review.product.title, category_product_path(review.product.category.to_param, review.product.to_param)
+                  - if review.product.present?
+                    = link_to review.product.title, category_product_path(review.product.category.to_param, review.product.to_param)
+                  - else
+                    Product that has been removed
               %span.badge 
                 Created at: 
                 = review.date
