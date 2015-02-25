@@ -7,15 +7,23 @@
       = category.name
 
   .panel-body
-    %p
-      - category.products.each do |product|
-        = product.title
-
     .row
-      .col-lg-4
-        .panel.panel-default
+      .col-lg-6
+        .panel.panel-primary
+          .panel-heading 
+            .panel-titel Products in the #{category.name} category
+          .panel-body
+            %p
+              - category.products.each do |product|
+                .btn-group{ role: "group" }
+                  =link_to product.title,  category_product_path(product.category, product), class: "btn btn-default" 
+          .panel-footer
+            =link_to 'Go to all products in category', category_products_path(category), class: "btn btn-lg btn-success" 
+
+      .col-lg-5.pull-right
+        .panel.panel-primary
           .panel-heading
-            %h3 New product
+            %h3.panel-title New product
           .panel-body     
             = render 'products/form'
 
