@@ -28,12 +28,14 @@
         .panel.panel-primary
           .panel-heading
             %h3.panel-title Reviews
-          .panel-body    
-            = render 'reviews/form'
+          .panel-body 
+            .row
+              .col-lg-8   
+                = render 'reviews/form'
           .panel-footer  
             = render reviews
 
-        .panel-footer    
-          = link_to 'Edit', edit_category_product_path(category.id, product.id)
-          \|
-          = link_to 'Back', category_products_path, class: 'btn btn-primary'
+  .panel-footer    
+    = link_to 'Edit', edit_category_product_path(category.id, product.id)
+    \|
+    = link_to 'Back', category_products_path, class: 'btn btn-primary'
